@@ -1,6 +1,3 @@
-wyraz="abcd"
-rev=wyraz[::-1]
+Stats ={"name":"'Beniz","cpu":0,"gpu":0,"disc":0,"ram":0,"price":0}
 
-for i in range(len(wyraz)):
-    print(wyraz[:i]+wyraz[i+1:])
-    print(rev[:i]+rev[i+1:
+print(Stats['name'])

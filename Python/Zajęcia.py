@@ -13,4 +13,11 @@ for ind2 in range(int(input())):
     Wymagania=input().split()   #np: gpu:10 cpu:150
     for i in range(len(Wymagania)): 
         Test=(Wymagania[i]).split(':') #np gpu:10
-        
+        Nazw=Test[0]
+        Wartosc=int(Test[1])
+        Temp=[]
+        for j in range(len(Brane)):
+            if Brane[j][Nazw] >= Wartosc:
+                Temp.append(Brane[j])
+        Brane=Temp
+        print(Brane)
