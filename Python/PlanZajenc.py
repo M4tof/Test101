@@ -1,3 +1,3 @@
-Stats ={"name":"'Beniz","cpu":0,"gpu":0,"disc":0,"ram":0,"price":0}
-
-print(Stats['name'])
+ane=[['Adam', 'Wata', 'Szachy:5', 'Skoki:7', 'Wojna:3'], ['Gabriel', 'Mucha', 'Wojna:3', 'Szachy:0', 'Skoki:9']]
+for g in range(len(ane)):
+    print(ane[g][2:len(ane[0])])
