@@ -1,17 +1,9 @@
-def magick(a):
-    a=str(a)
-    if len(a)<=2:
-        return True
-    else:
-        flag_rising=0
-        flag_droping=0
-        for i in range(1,len(a)):
-            if int(a[i-1])<int(a[i]):
-                flag_rising=1
-                if flag_rising==1 and flag_droping==1:
-                    return False
-            if int(a[i-1])>int(a[i]):
-                flag_droping=1
-    return True
+s = input()
+#print(sum(s.count(x)%2 for x in set(s)) < 2)
+print(sum( s.count( int(s) )%x for x in range( 2,int(s) ) ) ==0)
 
-print(magick(2321))
+
+#for i in range(2,int(s)):
+    #if int(s)%i==0:
+        #print(False)
+        
