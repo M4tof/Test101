@@ -1,4 +1,8 @@
-a= 3e-1
-b = 4e-1
+a=2
 
-print(a*a + b*b)
+for i in range (10):
+    a+=(a%(a-1))
+    while a>=10:
+        a-=9
+
+print(a)
