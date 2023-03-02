@@ -1,1 +1,6 @@
-w,h = input().split()
+    a = threading.Thread(target= f1)
+    b = threading.Thread(target= f2)
+    a.start()
+    b.start()
+    a.join()
+    b.join()
