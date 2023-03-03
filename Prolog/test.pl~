@@ -1,0 +1,8 @@
+kobiera(maria).
+kobieta(ewa).
+mê¿czyzna(piotr).
+
+rodzic(piotr,ewa).
+rodzic(maria,ewa).
+
+
