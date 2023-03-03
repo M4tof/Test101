@@ -1,0 +1,1 @@
+print("TAK DZIAŁA")
