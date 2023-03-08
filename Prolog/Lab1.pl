@@ -1,0 +1,120 @@
+%%% Jako pierwszÄ… klauzulÄ™ (nie komentarz!) naleÅ¼y zdefiniowaÄ‡ swoje dane     %%%
+%%% w postaci faktu: student(imiÄ™, nazwisko, numer_indeksu, numer_grupy_lab). %%%
+%%% PrzykÅ‚adowo:  student(jan,nowak_jezioraÅ„ski,150000,2).                    %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+student(krzysztof,mañczak,155939,9).
+
+kobieta(maria).
+kobieta(ewa).
+kobieta(joanna).
+kobieta(agata).
+kobieta(anna).
+kobieta(agnieszka).
+kobieta(beata).
+kobieta(iwona).
+
+mê¿czyzna(piotr).
+mê¿czyzna(adam).
+mê¿czyzna(marek).
+mê¿czyzna(robert).
+mê¿czyzna(jan).
+mê¿czyzna(krzysztof).
+mê¿czyzna(radek).
+mê¿czyzna(darek).
+mê¿czyzna(tomek).
+mê¿czyzna(jacek).
+
+rodzic(maria,marek).
+rodzic(piotr,marek).
+rodzic(maria,agata).
+rodzic(piotr,agata).
+rodzic(piotr,jan).
+rodzic(maria,jan).
+
+rodzic(adam,joanna).
+rodzic(ewa,joanna).
+rodzic(adam,anna).
+rodzic(ewa,anna).
+rodzic(ewa,krzysztof).
+rodzic(adam,krzysztof).
+
+rodzic(robert,radek).
+rodzic(agata,radek).
+rodzic(robert,beata).
+rodzic(agata,beata).
+
+rodzic(jan,darek).
+rodzic(jan,tomek).
+rodzic(anna,darek).
+rodzic(anna,tomek).
+
+rodzic(krzysztof,jacek).
+rodzic(agnieszka,jacek).
+rodzic(krzysztof,iwona).
+rodzic(agnieszka,iwona).
+
+ma³¿eñstwo(maria,piotr).
+ma³¿eñstwo(adam,ewa).
+ma³¿eñstwo(robert,agata).
+ma³¿eñstwo(jan,anna).
+ma³¿eñstwo(krzysztof,agnieszka).
+
+matka(X,Y):-
+	rodzic(X,Y),
+	kobieta(X).
+
+ojciec(X,Y):-
+	rodzic(X,Y),
+	mê¿czyzna(X).
+
+siostra(X,Y):-
+	kobieta(X),
+	rodzic(Z,X),
+	rodzic(Z,Y),
+	X\=Y.
+
+brat(X,Y):-
+	mê¿czyzna(X),
+	rodzic(Z,X),
+	rodzic(Z,Y),
+	X\=Y.
+
+babcia(X,Y):-
+	kobieta(X),
+	rodzic(Z,Y),
+	rodzic(X,Z).
+
+dziadek(X,Y):-
+	mê¿czyzna(X),
+	rodzic(Z,Y),
+	rodzic(X,Z).
+
+wuj(X,Y):-
+	mê¿czyzna(X),
+	siostra(Z,X),
+	matka(Z,Y).
+
+stryj(X,Y):-
+	mê¿czyzna(X),
+	brat(Z,X),
+	ojciec(Z,Y).
+
+rodzeñstwo(X,Y):-
+	rodzic(Z,X),
+	rodzic(Z,Y).
+
+kuzyn(X,Y):-
+	mê¿czyzna(X),
+	rodzic(Z,X),
+	rodzic(Q,Y),
+	rodzic(U,Z),
+	rodzic(U,Q),
+	Z\=Q,
+	X\=Y.
+
+teœciowa(X,Y):-
+	mê¿czyzna(Y),
+	ma³¿eñstwo(Y,Z),
+	matka(X,Z).
+
+szwagier(X,Y):-
