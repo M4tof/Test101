@@ -116,3 +116,23 @@ teœciowa(X,Y):-
 	mê¿czyzna(Y),
 	ma³¿eñstwo(Y,Z),
 	matka(X,Z).
+
+teœciowa(X,Y):-
+	mê¿czyzna(Y),
+	ma³¿eñstwo(Z,Y),
+	matka(X,Z).
+
+
+m¹¿(X,Y):-
+	mê¿czyzna(X),
+	ma³¿eñstwo(X,Y).
+
+m¹¿(X,Y):-
+	mê¿czyzna(X),
+	ma³¿eñstwo(Y,X).
+
+szwagier(X,Y) :-
+	mê¿czyzna(X),
+	ma³¿eñstwo(Z,Y),
+	m¹¿(Y,Z),
+	brat(X,Z).

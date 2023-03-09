@@ -1,4 +1,5 @@
 #include <stdio.h>
+#define Leap 1
 int main(void){
     int a;
     int b;
@@ -10,5 +11,6 @@ int main(void){
     printf("a is %d",a);
     printf("\n");
     printf("b is %d",b);
+    printf(Leap);
     return 0;
 }

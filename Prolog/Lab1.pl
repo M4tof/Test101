@@ -2,7 +2,7 @@
 %%% w postaci faktu: student(imiÄ™, nazwisko, numer_indeksu, numer_grupy_lab). %%%
 %%% PrzykÅ‚adowo:  student(jan,nowak_jezioraÅ„ski,150000,2).                    %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-student(krzysztof,mañczak,155939,9).
+student(krzysztof,maï¿½czak,155939,9).
 
 kobieta(maria).
 kobieta(ewa).
@@ -13,16 +13,16 @@ kobieta(agnieszka).
 kobieta(beata).
 kobieta(iwona).
 
-mê¿czyzna(piotr).
-mê¿czyzna(adam).
-mê¿czyzna(marek).
-mê¿czyzna(robert).
-mê¿czyzna(jan).
-mê¿czyzna(krzysztof).
-mê¿czyzna(radek).
-mê¿czyzna(darek).
-mê¿czyzna(tomek).
-mê¿czyzna(jacek).
+mï¿½czyzna(piotr).
+mï¿½czyzna(adam).
+mï¿½czyzna(marek).
+mï¿½czyzna(robert).
+mï¿½czyzna(jan).
+mï¿½czyzna(krzysztof).
+mï¿½czyzna(radek).
+mï¿½czyzna(darek).
+mï¿½czyzna(tomek).
+mï¿½czyzna(jacek).
 
 rodzic(maria,marek).
 rodzic(piotr,marek).
@@ -53,11 +53,11 @@ rodzic(agnieszka,jacek).
 rodzic(krzysztof,iwona).
 rodzic(agnieszka,iwona).
 
-ma³¿eñstwo(maria,piotr).
-ma³¿eñstwo(adam,ewa).
-ma³¿eñstwo(robert,agata).
-ma³¿eñstwo(jan,anna).
-ma³¿eñstwo(krzysztof,agnieszka).
+maï¿½ï¿½eï¿½stwo(maria,piotr).
+maï¿½ï¿½eï¿½stwo(adam,ewa).
+maï¿½ï¿½eï¿½stwo(robert,agata).
+maï¿½ï¿½eï¿½stwo(jan,anna).
+maï¿½ï¿½eï¿½stwo(krzysztof,agnieszka).
 
 matka(X,Y):-
 	rodzic(X,Y),
@@ -65,7 +65,7 @@ matka(X,Y):-
 
 ojciec(X,Y):-
 	rodzic(X,Y),
-	mê¿czyzna(X).
+	mï¿½czyzna(X).
 
 siostra(X,Y):-
 	kobieta(X),
@@ -74,7 +74,7 @@ siostra(X,Y):-
 	X\=Y.
 
 brat(X,Y):-
-	mê¿czyzna(X),
+	mï¿½czyzna(X),
 	rodzic(Z,X),
 	rodzic(Z,Y),
 	X\=Y.
@@ -85,26 +85,26 @@ babcia(X,Y):-
 	rodzic(X,Z).
 
 dziadek(X,Y):-
-	mê¿czyzna(X),
+	mï¿½czyzna(X),
 	rodzic(Z,Y),
 	rodzic(X,Z).
 
 wuj(X,Y):-
-	mê¿czyzna(X),
+	mï¿½czyzna(X),
 	siostra(Z,X),
 	matka(Z,Y).
 
 stryj(X,Y):-
-	mê¿czyzna(X),
+	mï¿½czyzna(X),
 	brat(Z,X),
 	ojciec(Z,Y).
 
-rodzeñstwo(X,Y):-
+rodzeï¿½stwo(X,Y):-
 	rodzic(Z,X),
 	rodzic(Z,Y).
 
 kuzyn(X,Y):-
-	mê¿czyzna(X),
+	mï¿½czyzna(X),
 	rodzic(Z,X),
 	rodzic(Q,Y),
 	rodzic(U,Z),
@@ -112,9 +112,31 @@ kuzyn(X,Y):-
 	Z\=Q,
 	X\=Y.
 
-teœciowa(X,Y):-
-	mê¿czyzna(Y),
-	ma³¿eñstwo(Y,Z),
+teï¿½ciowa(X,Y):-
+	mï¿½czyzna(Y),
+	maï¿½ï¿½eï¿½stwo(Y,Z),
 	matka(X,Z).
 
-szwagier(X,Y):-
+teï¿½ciowa(X,Y):-
+	mï¿½czyzna(Y),
+	maï¿½ï¿½eï¿½stwo(Z,Y),
+	matka(X,Z).
+
+
+mï¿½ï¿½(X,Y):-
+	mï¿½czyzna(X),
+	maï¿½ï¿½eï¿½stwo(X,Y).
+
+mï¿½ï¿½(X,Y):-
+	mï¿½czyzna(X),
+	maï¿½ï¿½eï¿½stwo(Y,X).
+
+szwagier(X,Y) :-
+	mï¿½czyzna(X),
+	mï¿½ï¿½(Y,Z),
+	brat(X,Z).
+
+szwagier(X,Y) :-
+	mï¿½czyzna(X),
+	mï¿½ï¿½(X,Z),
+	siostra(Z,Y).
